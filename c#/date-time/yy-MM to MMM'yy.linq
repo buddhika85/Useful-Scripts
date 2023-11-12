@@ -25,7 +25,7 @@ private string GetMonthStrWithYear(string yyMM)
 	return $"{CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(monthAndYear[0])}' {monthAndYear[1]}";
 }
 
-private int[] FindMonthAndYear(string yyMM)
+private int[]? FindMonthAndYear(string yyMM)
 {
 	if(int.TryParse(yyMM.Substring(0,2), out var year))
 	{
