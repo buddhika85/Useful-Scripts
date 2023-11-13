@@ -3,7 +3,7 @@
 </Query>
 
 using static System.Console;
-private const int MillenimumTwoYears = 2000;
+private const int MillenniumTwoYears = 2000;
 
 void Main()
 {
@@ -27,7 +27,7 @@ private DateTime[]? GetStartEndDate(string yyMM)
 		return null;
 	
 	var month = monthAndYear[0];
-	var year = monthAndYear[1] + MillenimumTwoYears;
+	var year = monthAndYear[1] + MillenniumTwoYears;
 	var daysInMonth = DateTime.DaysInMonth(year, month);
 	return new DateTime[]
 	{
