@@ -2,7 +2,11 @@
 
 void Main()
 {
-	Console.WriteLine(GetAllYearsAfter(2014));
+	var from2014 = GetAllYearsAfter(2014);
+	Console.WriteLine(from2014);
+	
+	from2014.ToList().Insert(0, -1);
+	Console.WriteLine(from2014);
 }
 
 public static int GetCurrentYear()
