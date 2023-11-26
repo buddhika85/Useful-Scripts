@@ -12,7 +12,7 @@ void Main()
 	//Console.WriteLine(GetTodayDateNum());
 	
 	Console.WriteLine(GetDatesForMonth(2023, GetMonthNumberOfYear("february")));
-	Console.WriteLine(GetDatesForMonth(2024, GetMonthNumberOfYear("february")));
+	Console.WriteLine(GetDatesForMonth(2024, GetMonthNumberOfYear("february"), "All"));
 }
 
 public const int MonthsCountInAnYear = 12;
@@ -22,9 +22,12 @@ public static int GetTodayDateNum()
 	return DateTime.Today.Day;
 }
 
-public int[] GetDatesForMonth(int year, int month)
+public static List<string> GetDatesForMonth(int year, int month, string allOption = null)
 {
-	return Enumerable.Range(1, DateTime.DaysInMonth(year, month)).ToArray();
+	var listOfDates = Enumerable.Range(1, DateTime.DaysInMonth(year, month)).Select(d => d.ToString()).ToList<string>();
+	if (!string.IsNullOrWhiteSpace(allOption))		
+		listOfDates.Insert(0, allOption);	
+	return listOfDates;
 }
 
 public static int GetMonthNumberOfYear(string name)
