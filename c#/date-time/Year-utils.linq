@@ -11,11 +11,36 @@ void Main()
 	//Console.WriteLine(GetMonthNames("All"));
 	//Console.WriteLine(GetTodayDateNum());
 	
-	Console.WriteLine(GetDatesForMonth(2023, GetMonthNumberOfYear("february")));
-	Console.WriteLine(GetDatesForMonth(2024, GetMonthNumberOfYear("february"), "All"));
+	//Console.WriteLine(GetDatesForMonth(2023, GetMonthNumberOfYear("february")));
+	//Console.WriteLine(GetDatesForMonth(2024, GetMonthNumberOfYear("february"), "All"));
+	
+	//Console.WriteLine(GetMonthsBack(3));
+	
+	Console.WriteLine(GetTodayDateNumAvoidWeekend());
 }
 
 public const int MonthsCountInAnYear = 12;
+
+public static string GetMonthsBack(int numOfMoenths)
+{
+	return DateTime.Today.AddMonths(numOfMoenths * -1).ToString("MMMM");
+}
+
+public static int GetTodayDateNumAvoidWeekend()
+{
+	Console.WriteLine($"Today: {DateTime.Today.Day} {DateTime.Today.DayOfWeek}");
+	if (DateTime.Today.DayOfWeek == DayOfWeek.Saturday)
+	{
+		Console.WriteLine($"Going back one day: {DateTime.Today.Day - 1}");
+		return DateTime.Today.AddDays(-1).Day;
+	}
+	if (DateTime.Today.DayOfWeek == DayOfWeek.Sunday)
+	{
+		Console.WriteLine($"Going back two days: {DateTime.Today.Day - 2}");
+		return DateTime.Today.AddDays(-2).Day;
+	}
+	return DateTime.Today.Day;
+}
 
 public static int GetTodayDateNum()
 {
