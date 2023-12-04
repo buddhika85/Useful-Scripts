@@ -6,6 +6,10 @@ void Main()
 {
 	//var from2014 = GetAllYearsAfter(2014);
 	//Console.WriteLine(from2014);
+	
+	var from2014 = GetAllYearsAfter(2014, "All");
+	Console.WriteLine(from2014);
+	
 	//Console.WriteLine(GetAllYearsAfterWithDefault(2014));
 	
 	//Console.WriteLine(GetMonthNames("All"));
@@ -16,7 +20,7 @@ void Main()
 	
 	//Console.WriteLine(GetMonthsBack(3));
 	
-	Console.WriteLine(GetTodayDateNumAvoidWeekend());
+	//Console.WriteLine(GetTodayDateNumAvoidWeekend());
 }
 
 public const int MonthsCountInAnYear = 12;
@@ -109,6 +113,13 @@ public static IEnumerable<int> GetAllYearsAfter(int startYear)
 {
 	var count = GetCurrentYear() - startYear + 1;
 	return Enumerable.Range(startYear, count);
+}
+
+public static IEnumerable<string> GetAllYearsAfter(int startYear, string allOption)
+{
+	var list = GetAllYearsAfter(startYear).Select(x => x.ToString()).ToList();
+	list.Insert(0, allOption);
+	return list;
 }
 
 public static List<int> GetAllYearsAfterWithDefault(int startYear, int defaultIndexZero = -1)
