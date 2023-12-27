@@ -9,7 +9,7 @@ public enum RefundAmendRequestType
 }
 public static class EnumExtensionsExample
 {
-	public static RefundAmendRequestType GetRequestType(this string input)
+	public static RefundAmendRequestType GetRequestType(string input)
 	{
 		if (string.IsNullOrWhiteSpace(input))
 			return RefundAmendRequestType.Undefined;
